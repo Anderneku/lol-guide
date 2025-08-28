@@ -1,26 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Righteous&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  font-family: Outfit;
+  --background: oklch(0.15 0.03 324.44);
+  --foreground: oklch(0.94 0.01 48.7);
+  --card: oklch(0.18 0.03 308.45);
+  --card-foreground: oklch(0.94 0.01 48.7);
+  --popover: oklch(0.38 0.02 18.16);
+  --popover-foreground: oklch(0.94 0.01 48.7);
+  --primary: oklch(0.62 0.22 290.64);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.7 0.19 23.55);
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.15 0.01 300.09);
+  --muted-foreground: oklch(83.975% 0.02014 49.937 / 0.76);
+  --accent: oklch(0.25 0.11 333.99);
+  --accent-foreground: oklch(0.96 0.18 115.37);
+  --destructive: oklch(0.63 0.21 25.71);
+  --border: oklch(0.8 0.07 326.27);
+  --input: oklch(0.36 0.02 342.33);
+  --ring: oklch(0.74 0.16 34.57);
+  --chart-1: oklch(0.7 0.19 23.55);
+  --chart-2: oklch(0.83 0.11 57.89);
+  --chart-3: oklch(0.88 0.08 56.41);
+  --chart-4: oklch(0.82 0.11 41.27);
+  --chart-5: oklch(0.64 0.13 32.06);
+  --sidebar: oklch(0.32 0 17.51);
+  --sidebar-foreground: oklch(0.94 0.01 48.7);
+  --sidebar-primary: oklch(0.74 0.16 34.57);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.83 0.11 57.89);
+  --sidebar-accent-foreground: oklch(0.32 0.01 17.68);
+  --sidebar-border: oklch(0.36 0.02 342.33);
+  --sidebar-ring: oklch(0.74 0.16 34.57);
+
+  --font-sans: Outfit, sans-serif;
+  --font-serif: Libre Baskerville, serif;
+  --font-mono: Fira Code, monospace;
+
+  --radius: 0.65rem;
+
+  --shadow-2xs: 2.5px 3px 7.5px 0px oklch(0 0 0 / 0.5);
+  --shadow-xs: 2.5px 3px 7.5px 0px oklch(0 0 0 / 0.5);
+  --shadow-sm: 2.5px 3px 7.5px 0px oklch(0 0 0 / 1),
+    2.5px 1px 2px -1px oklch(0 0 0 / 1);
+  --shadow: 2.5px 3px 7.5px 0px oklch(0 0 0 / 1),
+    2.5px 1px 2px -1px oklch(0 0 0 / 1);
+  --shadow-md: 2.5px 3px 7.5px 0px oklch(0 0 0 / 1),
+    2.5px 2px 4px -1px oklch(0 0 0 / 1);
+  --shadow-lg: 2.5px 3px 7.5px 0px oklch(0 0 0 / 1),
+    2.5px 4px 6px -1px oklch(0 0 0 / 1);
+  --shadow-xl: 2.5px 3px 7.5px 0px oklch(0 0 0 / 1),
+    2.5px 8px 10px -1px oklch(0 0 0 / 1);
+  --shadow-2xl: 2.5px 3px 7.5px 0px oklch(0 0 0 / 2.5);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: "BeaufortLOL";
+  src: url("/fonts/BeaufortforLOL-Heavy.ttf") format("truetype");
+  font-weight: 900;
+}
+Button {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: "BeaufortLOL";
+  font-size: var(--text-6xl);
+}
+h2 {
+  font-family: "BeaufortLOL";
+  font-size: var(--text-4xl);
+}
+
+p::selection {
+  background: var(--accent); /* Highlight background */
+  color: var(--color-accent-foreground); /* Highlighted text color */
+}
+
+/* For Firefox */
+p::-moz-selection {
+  background: var(--accent); /* Highlight background */
+  color: var(--color-accent-foreground); /* Highlighted text color */
+}
+
+p span, blockquote span {
+  color: var(--accent-foreground);
+}
+
+blockquote {
+  margin-top: 3rem; /* mt-6 */
+  margin-bottom: 3rem; /* mb-6 */
+  border-left-width: 2px; /* border-l-2 */
+  padding-left: 1.5rem; /* pl-6 */
+  font-style: italic; /* italic */
+  font-size: 1.5rem; /* text-2xl */
+  color: var(
+    --color-secondary
+  ); /* text-secondary (assuming it's a CSS variable or custom class) */
 }

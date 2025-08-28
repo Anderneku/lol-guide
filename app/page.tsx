@@ -1,103 +1,80 @@
-import Image from "next/image";
+"use client";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="w-full h-full ">
+      <section className="w-full h-screen flex flex-col justify-center items-center">
+        <div className="relative w-full h-full">
+          <div className="z-50 absolute top-0 left-0 flex w-full p-4 text-primary-foreground items-center ">
+            <img
+              src={"/images/league.png"}
+              width={64}
+              height={64}
+              className="mr-auto"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="flex w-full justify-around text-3xl text-accent-foreground">
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="/learn">LEARN</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="#">GUIDES</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="/champions">CHAMPIONS</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="#">ROLES</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="#">ITEMS</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="#">OBJECTIVES</a>
+              </h2>
+              <h2 style={{ fontFamily: "BeaufortLOL" }}>
+                <a href="#">SLANGS</a>
+              </h2>
+            </div>
+          </div>
+          <video
+            onContextMenu={(e) => e.preventDefault()}
+            preload="auto"
+            disablePictureInPicture
+            autoPlay={true}
+            loop={true}
+            muted={true}
+            playsInline={true}
+            src="/videos/lol_trailer.mp4"
+            className="brightness-40 select-none  w-full h-full object-fill"
           >
-            Read our docs
-          </a>
+            Video Error
+          </video>
+          <div className="absolute top-1/2 left-1/2 p-4 transform -translate-x-1/2 -translate-y-1/2  text-center font-bold   w-fit h-fit flex flex-col gap-8 items-center">
+            {/* <div className="bg-primary rounded-full p-4">
+
+            <img
+              src={"/images/league.png"}
+              width={100}
+              height={100}
+            />
+            </div> */}
+            <h1 style={{ fontFamily: "BeaufortLOL" }} className="text-center text-8xl text-primary-foreground">
+              THE NEW PLAYER'S GUIDE TO LEAGUE OF LEGENDS
+            </h1>
+            <a href="/learn">
+            <Button
+              variant={"secondary"}
+              style={{ fontFamily: "BeaufortLOL" }}
+              className="text-4xl p-8 w-fit"
+            >
+              LEARN LEAGUE <ArrowRight />
+            </Button>
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
   );
 }
