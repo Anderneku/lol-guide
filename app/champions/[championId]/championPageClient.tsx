@@ -1,21 +1,24 @@
 "use client";
 import AbilityVideo from "@/components/abilityVideo";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useState } from "react";
 
 export default function ChampionPageClient({
   spellsList,
   championKey,
 }: {
-  spellsList: [{ id: string }];
+  spellsList: [{ id: string, description: string }];
   championKey: string;
 }) {
   const [ability, setAbility] = useState("Q");
   const abilities = ["Q", "W", "E", "R"];
   return (
     <>
-      <div className="flex gap-4 pb-12">
+      <div className="flex gap-8 pb-12">
         {spellsList.map((spell, index) => (
-          <div
+          <Tooltip>
+                <TooltipTrigger asChild>
+<div
             onClick={() => {
               index === 0
                 ? setAbility("Q")
@@ -60,6 +63,14 @@ export default function ChampionPageClient({
               </div>
             </div>
           </div>
+                </TooltipTrigger>
+               <TooltipContent className="text-1xl">
+                  <p 
+                    dangerouslySetInnerHTML={{ __html: spell.description }}
+                  ></p>
+                </TooltipContent>
+                </Tooltip>
+          
         ))}
       </div>
       <AbilityVideo championKey={championKey} ability={ability} />

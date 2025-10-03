@@ -7,7 +7,5 @@ type champion = {
 };
 
 type championData = {
-  spells: [
-    {id: string}
-  ];
-}
+  spells: [{ id: string; description: string }];
+};

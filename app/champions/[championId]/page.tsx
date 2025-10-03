@@ -1,5 +1,10 @@
 import AbilityVideo from "@/components/abilityVideo";
 import ChampionPageClient from "./championPageClient";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 async function getChampions() {
   let champions = await fetch(
@@ -36,7 +41,7 @@ export default async function ChampionPage({
     individualChampionDataRaw
   )[0] as championData;
   const championSpells = individualChampionData.spells;
-  // console.log(championSpells)
+  console.log(championSpells);
 
   return (
     <main className="w-full h-full flex flex-col items-center p-8">
@@ -54,37 +59,45 @@ export default async function ChampionPage({
           </h1>
           <div className="flex gap-2">
             {championSpells.map((spell, index) => (
-              <div key={index} className="flex flex-col gap-2">
-                <div className="relative">
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${spell.id}.png`}
-                     className="border-2 border-primary"
-                  />
-                  <div className="w-full flex justify-center  absolute bottom-[-10] ">
-                    <div className="w-8 h-8 border-2 border-background bg-secondary text-secondary-foreground flex justify-center items-center rounded-full">
-                      <p>
-                        {index === 0
-                          ? "Q"
-                          : index === 1
-                          ? "W"
-                          : index === 2
-                          ? "E"
-                          : "R"}
-                      </p>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div key={index} className="flex flex-col gap-2">
+                    <div className="relative">
+                      <img
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${spell.id}.png`}
+                        className="border-2 border-primary"
+                      />
+                      <div className="w-full flex justify-center  absolute bottom-[-10] ">
+                        <div className="w-8 h-8 border-2 border-background bg-secondary text-secondary-foreground flex justify-center items-center rounded-full">
+                          <p>
+                            {index === 0
+                              ? "Q"
+                              : index === 1
+                              ? "W"
+                              : index === 2
+                              ? "E"
+                              : "R"}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </TooltipTrigger>
+                <TooltipContent className="text-1xl">
+                  <p 
+                    dangerouslySetInnerHTML={{ __html: spell.description }}
+                  ></p>
+                </TooltipContent>
+              </Tooltip>
             ))}
           </div>
         </div>
       </div>
       <div className="pb-8 ">
-
-      <img
-        src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${currentChampion[0].id}_0.jpg`}
-        className="rounded-lg border-2 border-accent-foreground"
-      />
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${currentChampion[0].id}_0.jpg`}
+          className="rounded-lg border-2 border-accent-foreground"
+        />
       </div>
       <h1 className="pb-8">Abilites</h1>
       <ChampionPageClient

@@ -67,7 +67,7 @@ export default function LanesGuide() {
         <blockquote>
           The map is called <span>Summoner's Rift</span>
         </blockquote>
-        <div>
+        <div className="pb-6">
           <img src={"/images/summonersRift_roles.png"} className="rounded-lg" />
           <p className="text-center italic p-2 text-base">
             Top Down View of Summoner's Rift with Roles and their Positions

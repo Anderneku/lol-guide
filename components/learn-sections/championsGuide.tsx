@@ -17,7 +17,7 @@ export default function ChampionsGuide() {
             <li>A Role/Lane they Best Fit in</li>
           </ul>
         </div>
-        <div className="py-8">
+        <div className="pt-8">
           <h2>CLASSES</h2>
           <p className=" text-2xl leading-10 text-muted-foreground tracking-tight cursor-default py-4">
             Champions are grouped into 7 major classes based on their playstyle:
@@ -56,12 +56,12 @@ export default function ChampionsGuide() {
               </li>
             </ol>
           </div>
+        </div>
           <blockquote>
             Note that there are other classes but they fall under sub-classes of
             the main ones!
           </blockquote>
-        </div>
-        <div className="py-8">
+        <div className="">
           <h2>CHAMPION PROGRESSION</h2>
           <p className=" text-2xl leading-10 text-muted-foreground tracking-tight cursor-default py-4">
             In-Game, there are{" "}
